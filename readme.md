@@ -9,3 +9,5 @@
 5. Perform migration: `php artisan migrate`
 6. View application in browser. Parsed news will be added to database after
    first load
+
+Made with `Goutte <https://github.com/FriendsOfPHP/Goutte>` Web Scraper
