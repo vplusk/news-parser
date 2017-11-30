@@ -10,9 +10,9 @@ class ParseController extends Controller
 {
     function index()
     {
-      $news = ParsedNews::orderBy('id','DESC')->get();      
+      $news = ParsedNews::orderBy('id','DESC')->get();
       
-      if(!empty($news)) {
+      if(sizeof($news) < 1) {
         $client = new Client();
         
         $crawler = $client->request('GET', 'https://www.segodnya.ua/regions/odessa.html');
@@ -37,9 +37,8 @@ class ParseController extends Controller
             'tags' => $tags]
           );
         });
-        $news = ParsedNews::orderBy('id','DESC')->get(); 
-      }      
-      
+        $news = ParsedNews::orderBy('id','DESC')->get();
+      }     
 
       return view('index')->with('news', $news);
     }
